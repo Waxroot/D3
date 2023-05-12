@@ -1,8 +1,9 @@
 var faceRight = false
 var faceLeft = false
-class Test extends Phaser.Scene{
+var win = false;
+class Level1 extends Phaser.Scene{
     constructor() {
-        super('test')
+        super('level1')
     }
     preload(){
         this.load.path = './assets/';
@@ -10,6 +11,7 @@ class Test extends Phaser.Scene{
         this.load.image('ground', 'solidGround.png');
         this.load.image('fakeFloor', 'floor.png');
         this.load.image('fakeGround', 'ground.png');
+        this.load.image('gold', 'Gold.png');
         this.load.spritesheet('Mon', 'monSpriteSheet.png', {
             frameWidth: 213,
             frameHeight: 117,
@@ -34,17 +36,31 @@ class Test extends Phaser.Scene{
             'fakeGround',
         )
         this.imageObject.setScale(1.3);
+
+        const goal = this.physics.add.staticGroup();
         
         const platforms = this.physics.add.staticGroup();
 
-        platforms.create(400, 568, 'floor').setScale(2).refreshBody();
-        platforms.create(600, 400, 'ground');
+        goal.create(400, 500, 'gold')
+
+        let worldFloor = platforms.create(400, 568, 'floor').setScale(2).refreshBody();
+        var normalFloor = platforms.create(600, 400, 'ground');
        // platforms.create(50, 250, 'ground');
 
 
         this.player = this.physics.add.sprite(100, 450, 'Mon');
 
-        //this.player.setBounce(0.2);
+
+
+        //here
+        //here
+        //here
+        this.physics.add.overlap(this.player, goal, this.ifWin, null, this)
+
+
+
+
+
         this.player.setCollideWorldBounds(true);
 
         this.anims.create({
@@ -74,12 +90,22 @@ class Test extends Phaser.Scene{
         this.cursors = this.input.keyboard.createCursorKeys();
 
         this.physics.add.collider(this.player, platforms);
+        this.physics.add.collider(this.player, goal);
+        this.physics.add.collider(goal, platforms);
         
 
     }
+    
     update(){
-        const { left, right, up } = this.cursors;
+        if(win == true){
+            console.log('end of game');
+            this.scene.start('between1and2')
+        }
+
+
+        const { left, right, up, } = this.cursors;
         const spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        const downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
         if (left.isDown)
         {
@@ -147,6 +173,29 @@ class Test extends Phaser.Scene{
         }
     }
 
+    ifWin (player, goal)
+    {
+        console.log('you win')
+        win = true
+    }
+
+    }
+
+
+    class Afterlevel1 extends Phaser.Scene{
+        constructor() {
+            super('between1and2')
+        }
+        preload(){
+            this.load.image('fakeFloor', 'floor.png');
+        }
+        create(){
+            this.imageObject = this.add.image(
+                400,
+                520,
+                'fakeFloor',
+            )
+        }
     }
 
 
@@ -162,7 +211,7 @@ class Test extends Phaser.Scene{
                 debug: false
             }
         },
-        scene: Test
+        scene: [Level1, Afterlevel1]
     };
     
     const game = new Phaser.Game(config);
