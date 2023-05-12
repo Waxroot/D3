@@ -4,20 +4,16 @@ Process Requirements:
 
 Experiance requirements:
 
-**The game uses both discrete and continuous inputs from the player**: 
--continuous inputs from movement, menu choices are descrete inputs
+- **The game uses both discrete and continuous inputs from the player**: continuous inputs from movement, menu choices are descrete inputs
 
-**The players goal can only be achieved indirectly**: 
--Must jump on platforms and use character movement to win
+- **The players goal can only be achieved indirectly**: Must jump on platforms and use character movement to win
 
-**3+ physics-based gameplay scenes**: 
+- **3+ physics-based gameplay scenes**: 
 -Level1, Level2, and Level3 completed and all physics based
 
-**The 3 physics-based gameplay scenes are organized into a progression**: 
--Levels are all differently layed out and each one is more difficult than the last
+- **The 3 physics-based gameplay scenes are organized into a progression**: Levels are all differently layed out and each one is more difficult than the last
 
-**other scenes are used to seperate and contexualize the gameplay scene**: 
--Ever gameplay scene is sepration by menu scenes which can either be instructional or have player choices made
+- **other scenes are used to seperate and contexualize the gameplay scene**: Ever gameplay scene is sepration by menu scenes which can either be instructional or have player choices made
 
 
 Asset Sources:
