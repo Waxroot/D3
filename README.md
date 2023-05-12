@@ -1,6 +1,6 @@
 # D3
 Process Requirements:
-**Play game here**: 
+**Play game here**: [game](https://waxroot.github.io/D3/)
 
 Experiance requirements:
 **The game uses both discrete and continuous inputs from the player**: continuous inputs from movement, menu choices are descrete inputs

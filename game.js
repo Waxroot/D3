@@ -670,7 +670,7 @@ class Level2 extends Phaser.Scene{
                 debug: false
             }
         },
-        scene: [ Intro, Level2, Level3, Afterlevel3, Level1, Afterlevel1, Afterlevel2]
+        scene: [ Intro, Level2, Level3, Level1, Afterlevel1, Afterlevel2, Afterlevel3]
     };
     
     const game = new Phaser.Game(config);
