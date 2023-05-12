@@ -307,7 +307,7 @@ class Level2 extends Phaser.Scene{
         platforms.create(700, 330, 'ground').setScale(.7).refreshBody();
         platforms.create(100, 230, 'ground').setScale(.7).refreshBody();
        // platforms.create(50, 250, 'ground');
-       goal.create(100, 180, 'gold')
+       goal.create(100, 185, 'gold').setScale(.7).refreshBody();
 
 
         this.player = this.physics.add.sprite(100, 400, 'Mon').setScale(1);
@@ -670,7 +670,7 @@ class Level2 extends Phaser.Scene{
                 debug: false
             }
         },
-        scene: [ Intro, Level3, Level2, Afterlevel3, Level1, Afterlevel1, Afterlevel2]
+        scene: [ Intro, Level2, Level3, Afterlevel3, Level1, Afterlevel1, Afterlevel2]
     };
     
     const game = new Phaser.Game(config);
